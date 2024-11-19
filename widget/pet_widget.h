@@ -12,7 +12,7 @@
 #include "../public/public_enum.h"
 using namespace Pet;
 
-class PetWidget : QWidget
+class PetWidget : public QWidget
 {
 Q_OBJECT
 public:
@@ -20,7 +20,7 @@ public:
     ~PetWidget() override;
 
 public:
-    void showActAnimation(RoleAct k);
+    void showActAnimation(Pet::RoleAct k);
 
 public slots:
     void onMenuTriggered(QAction* action);
@@ -34,15 +34,15 @@ private:
     void initMenu();
 
 private:
-    QMap<RoleAct,QList<QUrl>> action_map;
+    QMap<Pet::RoleAct,QList<QUrl>> action_map;
     QTimer* timer;
-    RoleAct cur_role_act;
+    Pet::RoleAct cur_role_act;
     QUrl cur_role_pix;
     QMenu* menu;
 
 };
 
-class DragFilter:public QObject{
+class DragFilter_:public QObject{
 
 public:
     bool eventFilter(QObject* obj,QEvent* event)

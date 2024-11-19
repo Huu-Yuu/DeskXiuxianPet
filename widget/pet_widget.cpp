@@ -2,7 +2,7 @@
 // Created by patient on 2024/11/19.
 //
 
-#include "pet_widget.h"
+#include"pet_widget.h"
 #include<QPaintEvent>
 #include<QPainter>//绘图
 #include<QPixmap>//图片
@@ -18,7 +18,7 @@ PetWidget::PetWidget(QWidget *parent)
     this->setWindowFlag(Qt::FramelessWindowHint);//去除窗口边框
     this->setAttribute(Qt::WA_TranslucentBackground);//背景透明
 
-    this->installEventFilter(new DragFilter);
+    this->installEventFilter(new DragFilter_);
 
     connect(timer,&QTimer::timeout,[this](){
         static int index=0;//记录显示动作的当前图片索引
