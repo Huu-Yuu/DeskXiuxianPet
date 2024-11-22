@@ -5,17 +5,20 @@
 #include <QIcon>
 #include <QLabel>
 #include <QMovie>
+#include "widget/pet_widget.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Widget w;
+//    Widget w;
+    PetWidget w;
 
+    // 托盘图标
     QSystemTrayIcon sysTray(QIcon("://img/icon.png"),&w);
 
     QMenu menu;
-    auto showAct=new QAction("show",&sysTray);
-    auto exitAct=new QAction("exit",&sysTray);
+    auto showAct=new QAction("显示", &sysTray);
+    auto exitAct=new QAction("隐退", &sysTray);
 
     QObject::connect(showAct,&QAction::triggered,[&](){
         w.setVisible(true);
@@ -27,17 +30,11 @@ int main(int argc, char *argv[])
     menu.addAction(showAct);
     menu.addAction(exitAct);
 
+    // 绑定托盘菜单
     sysTray.setContextMenu(&menu);
 
     sysTray.show();
     w.show();
-
-    QLabel *label = new QLabel();
-       QMovie *movie = new QMovie(":/res/xiuxian.gif");
-       label->setMovie(movie); // 1. 设置要显示的 GIF 动画图片
-       movie->start();         // 2. 启动动画
-       label->show();
-
 
     return a.exec();
 }

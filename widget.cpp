@@ -1,4 +1,4 @@
-#include "widget.h"
+﻿#include "widget.h"
 #include<QPaintEvent>
 #include<QPainter>//绘图
 #include<QPixmap>//图片

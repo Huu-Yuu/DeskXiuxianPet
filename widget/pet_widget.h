@@ -1,4 +1,4 @@
-#ifndef DESKXIUXIANPET_PET_WIDGET_H
+﻿#ifndef DESKXIUXIANPET_PET_WIDGET_H
 #define DESKXIUXIANPET_PET_WIDGET_H
 #include<QWidget>
 #include<QMap>
@@ -9,6 +9,8 @@
 #include<QMouseEvent>
 #include<QContextMenuEvent>
 #include<QMenu>
+#include<QMetaEnum>
+#include<QLabel>
 #include "../public/public_enum.h"
 using namespace Pet;
 
@@ -34,12 +36,13 @@ private:
     void initMenu();
 
 private:
-    QMap<Pet::RoleAct,QList<QUrl>> action_map;
-    QTimer* timer;
+    QMap<Pet::RoleAct, QString> action_map;
+    QMap<QString, const char*> act_str_map;    ///< 动作字符串和枚举值映射关系
     Pet::RoleAct cur_role_act;
     QUrl cur_role_pix;
     QMenu* menu;
-
+    QLabel* pet_label;         ///< 宠物窗口
+    QMetaEnum mate_enum = QMetaEnum::fromType<Pet::RoleAct>();    ///< 角色动作元对象枚举值
 };
 
 class DragFilter_:public QObject{
