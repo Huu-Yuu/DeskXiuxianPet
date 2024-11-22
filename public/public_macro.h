@@ -1,6 +1,8 @@
 ﻿#ifndef PUBLIC_MACRO_H
 #define PUBLIC_MACRO_H
-
+#include <QDateTime>
+#include <QFile>
+#include <QDebug>
 // 调试信息输出开关
 #define DEBUG_MODE_SWITCH       1
 

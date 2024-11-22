@@ -45,6 +45,9 @@ private:
     QMetaEnum mate_enum = QMetaEnum::fromType<Pet::RoleAct>();    ///< 角色动作元对象枚举值
 };
 
+/**
+* @brief 事件过滤器，主要用于过滤鼠标拖动
+        */
 class DragFilter_:public QObject{
 
 public:

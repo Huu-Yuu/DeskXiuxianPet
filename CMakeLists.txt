@@ -22,7 +22,7 @@ elseif(WIN32)
 endif()
 #find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 #find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
-find_package(Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt5 REQUIRED COMPONENTS Core Widgets Sql Network WebSockets)
 #find_package(Qt5 COMPONENTS Core Gui Sql Network Widgets WebSockets Qml Quick REQUIRED)
 
 file(GLOB_RECURSE SRC_SOURCE_FILES  # 非根目录下递归查找
@@ -30,12 +30,28 @@ file(GLOB_RECURSE SRC_SOURCE_FILES  # 非根目录下递归查找
         ${CMAKE_SOURCE_DIR}/public/*.cpp
         ${CMAKE_SOURCE_DIR}/widget/*.h
         ${CMAKE_SOURCE_DIR}/widget/*.cpp
+        ${CMAKE_SOURCE_DIR}/common/*.h
+        ${CMAKE_SOURCE_DIR}/common/*.cpp
+        ${CMAKE_SOURCE_DIR}/role/*.h
+        ${CMAKE_SOURCE_DIR}/role/*.cpp
+        ${CMAKE_SOURCE_DIR}/server/*.h
+        ${CMAKE_SOURCE_DIR}/server/*.cpp
+        ${CMAKE_SOURCE_DIR}/filedata/*.h
+        ${CMAKE_SOURCE_DIR}/filedata/*.cpp
+        ${CMAKE_SOURCE_DIR}/logger/*.h
+        ${CMAKE_SOURCE_DIR}/logger/*.cpp
+        ${CMAKE_SOURCE_DIR}/progress/*.h
+        ${CMAKE_SOURCE_DIR}/progress/*.cpp
+        ${CMAKE_SOURCE_DIR}/business/*.h
+        ${CMAKE_SOURCE_DIR}/business/*.cpp
         )
 
 set(PROJECT_SOURCES
         main.cpp
         widget.cpp
         widget.h
+        interface_manager.h
+        interface_manager.cpp
         #        ${CMAKE_SOURCE_DIR}/public/error_code.h
 )
 
